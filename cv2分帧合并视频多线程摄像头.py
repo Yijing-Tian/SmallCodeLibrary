@@ -1,4 +1,11 @@
 """
+pip install opencv-python
+pip install natsort
+"""
+
+
+
+"""
 视频分成图片
 """
 import cv2
