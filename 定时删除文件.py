@@ -43,3 +43,19 @@ if __name__ == '__main__':
 """
 根据sql，判断删除
 """
+import os
+N = 8 # 设置删除多少天前的文件
+sql = f"""SELECT id , realUrl 
+    FROM 
+        trusteeship_enterprise_make_video 
+    where 
+        DATE_SUB(CURDATE(), INTERVAL {N} DAY) >= date(addDate) AND isDelete=1 order by id asc limit 100"""
+date_del_data = select_db (sql, chiose='cha') # 从数据库查找过期的视频
+for one_del_data in date_del_data:
+    try:
+        os.remove(os.path.basename(one_del_data['realUrl']))
+        print(f"文件已过期，删除 {one_del_data['realUrl']} ")
+    except:
+        print(f"文件不存在{one_del_data['realUrl']}")
+    sql = f"""delete from trusteeship_enterprise_make_video where id = {one_del_data['id']}"""
+    select_db (sql)
