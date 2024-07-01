@@ -1,3 +1,7 @@
+"""
+pip install oss2
+"""
+
 
 import oss2
 auth = oss2.Auth('LTAIeOayNW4ZjgrY', '6cAhgzBXg1cvGrdek2sgdXz8Ws9Ppq')
