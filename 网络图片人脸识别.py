@@ -33,9 +33,9 @@ app.add_middleware(GZipMiddleware, minimum_size=1000)
 import time
 import random
 import oss2
-auth = oss2.Auth('LTAI5tMnUay3CDmBHM7owntw', 'KzNQd2yOq9n7LS1JhBiVVQQG8I2v2s')
+auth = oss2.Auth('LTAI*****', 'KzNQ*****')
 endpoint = 'http://oss-cn-zhangjiakou.aliyuncs.com'
-bucket = oss2.Bucket(auth, endpoint, 'yanxuezs')  
+bucket = oss2.Bucket(auth, endpoint, 'password')  
 
 class FaceRecognition:
     def __init__(self, gpu_id=0, face_db='face', threshold=1.24, det_thresh=0.50, det_size=(640, 640)):
