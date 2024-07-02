@@ -43,9 +43,9 @@ import smtplib
 
 def mailToMe (subject): # 主题
     mail_txt = "" # 邮箱内容
-    from_email_address = "l1071812516@163.com" # 发送邮箱地址
+    from_email_address = "*****@163.com" # 发送邮箱地址
     password = '' # 登录QQ邮箱官网，进入“设置” -> “账户” -> “POP3/IMAP/SMTP/Exchange/CardDAV/CalDAV服务”。
-    to_mail_address = '1071812516@qq.com' # 接收邮箱地址
+    to_mail_address = '*****@qq.com' # 接收邮箱地址
     message = MIMEText(mail_txt, 'plain', 'utf-8')
     message['Subject'] = subject
     message['To'] = to_mail_address
