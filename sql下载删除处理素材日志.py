@@ -27,12 +27,12 @@ logger.addHandler(file_handler)
 class oss_down_source:
     def __init__(self):
         self.sql_lock = threading.Lock()
-        self.db = pymysql.connect(host='rm-8vbq6ojr4rmscc34qqo.mysql.zhangbei.rds.aliyuncs.com', port=3306, # 链接地址 # 端口号
-                                user='ydbusiness',passwd='EVD!wuj@uA3q', # 用户名 # 密码
-                                db='ydbusiness',autocommit=True) # 数据库名
+        self.db = pymysql.connect(host='*****.com', port=3306, # 链接地址 # 端口号
+                                user='user',passwd='passwd', # 用户名 # 密码
+                                db='db',autocommit=True) # 数据库名
         self.Mixed_out_lin = "G:/Mixed_shear_source/"
 
-        self.oss_url = 'http://yundao888.oss-cn-beijing.aliyuncs.com/'
+        self.oss_url = 'http://*****.aliyuncs.com/'
 
 
     def select_db (self, sql, chiose='none'):
@@ -55,12 +55,9 @@ class oss_down_source:
             except pymysql.Error as e: # pymysql潜在异常
                 print("Error:", e)
                 try:
-                    self.db = pymysql.connect(host='rm-8vbq6ojr4rmscc34qqo.mysql.zhangbei.rds.aliyuncs.com', port=3306, # 链接地址 # 端口号
-                                            user='ydbusiness',passwd='EVD!wuj@uA3q', # 用户名 # 密码
-                                            db='ydbusiness',autocommit=True) # 数据库名
-                    # self.db = pymysql.connect(host='111.231.23.132', port=3306, # 链接地址 # 端口号
-                    #                         user='yundao123',passwd='yundao123', # 用户名 # 密码
-                    #                         db='micrapp_test',autocommit=True) # 数据库名
+                    self.db = pymysql.connect(host='*****.com', port=3306, # 链接地址 # 端口号
+                                            user='user',passwd='passwd', # 用户名 # 密码
+                                            db='db',autocommit=True) # 数据库名
                     time.sleep(1)
                 except:
                     pass
@@ -297,82 +294,3 @@ if __name__ == "__main__":
 
 
 
-
-
-
-
-
-# # 输出log信息
-# logging.debug('这是debug级别的信息')
-# logging.info('这是info级别的信息')
-# logging.warning('这是warning级别的信息')
-# logging.error('这是error级别的信息')
-# logging.critical('这是critical级别的信息')
-
-
-        # auth = oss2.Auth('LTAIeOayNW4ZjgrY', '6cAhgzBXg1cvGrdek2sgdXz8Ws9Ppq')
-        # endpoint = 'http://oss-cn-beijing.aliyuncs.com'
-        # self.bucket = oss2.Bucket(auth, endpoint, 'yundao888')  
-
-
-        # limit_speed = (10000 * 1024 * 8) # 在headers中设置限速100 KB/s，即819200 bit/s。
-        # self.headers = dict()
-        # self.headers[OSS_TRAFFIC_LIMIT] = str(limit_speed)
-
-
-            # result = self.bucket.get_object_to_file(oss_file_path, local_path, progress_callback=self.percentage) # headers=self.headers, 
-            # print('http response status:', result.status)
-            # sql = """
-            # update trusteeship_enterprise_mixed_shear_re_details set uploadUrl = "%s", uploadSuccessDate = now(), uploadState = 1, sumSecond = %s where id = %s
-            # """ % (self.Mixe
-            # d_internal_http+oss_file_name, vid_duration, one_data[0])
-    
-
-
-            # else:
-            #     # print("is down local",local_path)
-            #     logging.info("is down local")
-            #     logging.info(local_path)
-            #     file_url = one_data[2]
-            #     r = requests.get(file_url)
-            #     with open(local_path, "wb") as file_a:
-            #         file_a.write(r.content)
-
-
-                # sql = """
-                # update trusteeship_enterprise_mixed_shear_re_details set uploadUrl = "%s", uploadSuccessDate = now(), uploadState = 1, sumSecond = %s where id = %s
-                # """ % (self.Mixed_internal_http+oss_file_name, vid_duration, one_data[0])
-                # sql = """
-                # update trusteeship_enterprise_mixed_shear_re_details set uploadSuccessDate = now(), uploadState = 1, sumSecond = %s where id = %s
-                # """ % (vid_duration, one_data[0])
-                # self.select_db (sql)
-                # print('no have updata')
-    
-
-    # def download_file(self, url, dest_filename):
-    #     with requests.get(url, stream=True) as response:
-    #         total_size = int(response.headers.get('content-length', 0))
-    #         block_size = 10240  # 1 KB
-    #         t = tqdm(total=total_size, unit='B', unit_scale=True)
-    #         start = time.time()
-    #         with open(dest_filename, 'wb') as file:
-    #             start_time = datetime.now()
-    #             for data in response.iter_content(block_size):
-    #                 t.update(len(data))
-    #                 file.write(data)
-    #                 speed = t.n / max(1, (datetime.now() - start_time).seconds)
-    #                 if time.time() - start > 1:
-    #                     logging.info(data)
-    #                     logging.info(f'{speed:.2f} B/s')
-    #                 # t.set_postfix(speed=f'{speed:.2f} B/s')
-    #                 # logging.info(t.set_postfix(speed=f'{speed:.2f} B/s'))
-
-    #         t.close()
-
-    # def percentage(self, consumed_bytes, total_bytes):
-    #     if total_bytes and time.time() - self.start_oss > 1:
-    #         rate = int(100 * (float(consumed_bytes) / float(total_bytes)))
-    #         self.start_oss = time.time()
-    #         # rate表示下载进度。
-    #         print('\r{0}% '.format(rate), end='')
-    #         sys.stdout.flush()
