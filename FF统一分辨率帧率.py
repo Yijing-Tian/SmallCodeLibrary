@@ -12,9 +12,9 @@ import json
 
 
 def select_db (sql, chiose='none'):
-    db = pymysql.connect(host='rm-8vbq6ojr4rmscc34qqo.mysql.zhangbei.rds.aliyuncs.com', port=3306, # 链接地址 # 端口号
-                            user='ydbusiness',passwd='EVD!wuj@uA3q', # 用户名 # 密码
-                            db='ydbusiness',autocommit=True) # 数据库名
+    db = pymysql.connect(host='*****.com', port=3306, # 链接地址 # 端口号
+                            user='user',passwd='passwd', # 用户名 # 密码
+                            db='db',autocommit=True) # 数据库名
     # for i in range(10):
     try:
         with db.cursor() as cur:
@@ -33,9 +33,9 @@ def select_db (sql, chiose='none'):
     except pymysql.Error as e: # pymysql潜在异常
         print("Error:", e)
         try:
-            db = pymysql.connect(host='rm-8vbq6ojr4rmscc34qqo.mysql.zhangbei.rds.aliyuncs.com', port=3306, # 链接地址 # 端口号
-                                    user='ydbusiness',passwd='EVD!wuj@uA3q', # 用户名 # 密码
-                                    db='ydbusiness',autocommit=True) # 数据库名
+            db = pymysql.connect(host='*****.com', port=3306, # 链接地址 # 端口号
+                                    user='user',passwd='passwd', # 用户名 # 密码
+                                    db='db',autocommit=True) # 数据库名
             time.sleep(1)
         except:
             pass
